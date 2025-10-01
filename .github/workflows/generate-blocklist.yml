@@ -16,8 +16,11 @@ jobs:
 
       - name: Download Hagezi lists
         run: |
-          curl -fsSL -o multi-normal.txt "https://raw.githubusercontent.com/hagezi/dns-blocklists/refs/heads/main/dnsmasq/multi.txt"
-          curl -fsSL -o multi-pro-plus.txt "https://raw.githubusercontent.com/hagezi/dns-blocklists/refs/heads/main/dnsmasq/pro.plus.txt"
+          curl -fsSL -o multi-normal.txt "https://raw.githubusercontent.com/hagezi/dns-blocklists/refs/heads/main/dnsmasq/multi.txt" || { echo "Failed to download multi-normal.txt"; exit 1; }
+          curl -fsSL -o multi-pro-plus.txt "https://raw.githubusercontent.com/hagezi/dns-blocklists/refs/heads/main/dnsmasq/pro.plus.txt" || { echo "Failed to download multi-pro-plus.txt"; exit 1; }
+          echo "Normal list head:" && head -n 10 multi-normal.txt
+          echo "Pro++ list head:" && head -n 10 multi-pro-plus.txt
+          ls -l *.txt  # Show file sizes
 
       - name: Generate filtered blocklist
         run: |
@@ -30,11 +33,12 @@ jobs:
               for line in f:
                   line = line.strip()
                   if line and not line.startswith('#'):
-                      parts = re.split(r'\s+', line)
-                      if len(parts) >= 2:
-                          domain = parts[-1].lower().rstrip('.')
-                          if domain:
+                      # Expect format: local=/domain/
+                      if line.startswith('local=/'):
+                          domain = line.split('/')[1].lower().rstrip('/')
+                          if domain and re.match(r'^[a-z0-9.-]+$', domain):
                               normal_domains.add(domain)
+              print(f'Normal domains extracted: {len(normal_domains)}')
 
           # Read pro++ list and filter
           filtered_lines = []
@@ -42,11 +46,11 @@ jobs:
               for line in f:
                   line = line.strip()
                   if line and not line.startswith('#'):
-                      parts = re.split(r'\s+', line)
-                      if len(parts) >= 2:
-                          domain = parts[-1].lower().rstrip('.')
-                          if domain and domain not in normal_domains:
-                              filtered_lines.append(line)
+                      # Expect format: local=/domain/
+                      if line.startswith('local=/'):
+                          domain = line.split('/')[1].lower().rstrip('/')
+                          if domain and re.match(r'^[a-z0-9.-]+$', domain) and domain not in normal_domains:
+                              filtered_lines.append(line)  # Keep original line
                   else:
                       filtered_lines.append(line)  # Keep comments and empty lines
 
