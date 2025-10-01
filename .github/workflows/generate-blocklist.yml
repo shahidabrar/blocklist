@@ -16,8 +16,8 @@ jobs:
 
       - name: Download Hagezi lists
         run: |
-          curl -fsSL -o multi-normal.txt "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/multi.txt"
-          curl -fsSL -o multi-pro-plus.txt "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/pro.plus.txt"
+          curl -fsSL -o multi-normal.txt "https://raw.githubusercontent.com/hagezi/dns-blocklists/refs/heads/main/dnsmasq/multi.txt"
+          curl -fsSL -o multi-pro-plus.txt "https://raw.githubusercontent.com/hagezi/dns-blocklists/refs/heads/main/dnsmasq/pro.plus.txt"
 
       - name: Generate filtered blocklist
         run: |
