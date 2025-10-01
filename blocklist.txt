@@ -1,0 +1,12 @@
+# Title: HaGeZi's Pro++ DNS Blocklist
+# Description: Sweeper - Aggressive cleans the Internet and protects your privacy! Blocks Ads, Affiliate, Tracking, Metrics, Telemetry, Phishing, Malware, Scam, Fake, Crytojacking and other "Crap".
+# Homepage: https://github.com/hagezi/dns-blocklists
+# License: https://github.com/hagezi/dns-blocklists/blob/main/LICENSE
+# Issues: https://github.com/hagezi/dns-blocklists/issues
+# Disclaimer: https://github.com/hagezi/dns-blocklists/blob/main/README.md#disclaimer
+# Expires: 1 day
+# Last modified: 01 Oct 2025 14:35 UTC
+# Version: 2025.1001.1435.51
+# Syntax: DNSMasq v2.86 or newer
+# Number of entries: 227887
+#
