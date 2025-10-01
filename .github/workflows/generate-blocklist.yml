@@ -1,0 +1,67 @@
+name: Generate DNS Blocklist
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Run daily at midnight UTC
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  generate-blocklist:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download Hagezi lists
+        run: |
+          curl -fsSL -o multi-normal.txt "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/multi.txt"
+          curl -fsSL -o multi-pro-plus.txt "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/domains/pro.plus.txt"
+
+      - name: Generate filtered blocklist
+        run: |
+          python3 -c "
+          import re
+
+          # Read normal list and extract domains
+          normal_domains = set()
+          with open('multi-normal.txt', 'r') as f:
+              for line in f:
+                  line = line.strip()
+                  if line and not line.startswith('#'):
+                      parts = re.split(r'\s+', line)
+                      if len(parts) >= 2:
+                          domain = parts[-1].lower().rstrip('.')
+                          if domain:
+                              normal_domains.add(domain)
+
+          # Read pro++ list and filter
+          filtered_lines = []
+          with open('multi-pro-plus.txt', 'r') as f:
+              for line in f:
+                  line = line.strip()
+                  if line and not line.startswith('#'):
+                      parts = re.split(r'\s+', line)
+                      if len(parts) >= 2:
+                          domain = parts[-1].lower().rstrip('.')
+                          if domain and domain not in normal_domains:
+                              filtered_lines.append(line)
+                  else:
+                      filtered_lines.append(line)  # Keep comments and empty lines
+
+          # Write to output file
+          with open('blocklist.txt', 'w') as out:
+              for line in filtered_lines:
+                  out.write(line + '\n')
+
+          print(f'Generated blocklist with {len(filtered_lines)} lines')
+          "
+
+      - name: Commit and push changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore: update blocklist from Hagezi Pro++ minus Normal'
+          file_pattern: blocklist.txt
+          commit_user_name: github-actions[bot]
+          commit_user_email: 41898282+github-actions[bot]@users.noreply.github.com
