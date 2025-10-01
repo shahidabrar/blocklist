@@ -17,7 +17,7 @@ jobs:
       - name: Download Hagezi lists
         run: |
           curl -fsSL -o multi-normal.txt "https://raw.githubusercontent.com/hagezi/dns-blocklists/refs/heads/main/dnsmasq/multi.txt" || { echo "Failed to download multi-normal.txt"; exit 1; }
-          curl -fsSL -o multi-pro-plus.txt "https://raw.githubusercontent.com/hagezi/dns-blocklists/refs/heads/main/dnsmasq/pro.plus.txt" || { echo "Failed to download multi-pro-plus.txt"; exit 1; }
+          curl -fsSL -o multi-pro-plus.txt "https://raw.githubusercontent.com/hagezi/dns-blocklists/refs/heads/main/dnsmasq/ultimate.txt" || { echo "Failed to download multi-pro-plus.txt"; exit 1; }
           echo "Normal list head:" && head -n 10 multi-normal.txt
           echo "Pro++ list head:" && head -n 10 multi-pro-plus.txt
           ls -l *.txt  # Show file sizes
