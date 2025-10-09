@@ -9,3 +9,4 @@ address=/s.youtube.com/0.0.0.0
 address=/clientservices.googleapis.com/0.0.0.0
 local=/conf.letsmessagenow.com/
 server=/googlevideo.com/1.1.1.1
+server=/facebook.com/1.1.1.1
