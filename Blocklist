@@ -7,5 +7,5 @@ address=/frontier.tiktokv.com/0.0.0.0
 address=/csp.withgoogle.com/0.0.0.0
 address=/s.youtube.com/0.0.0.0
 address=/clientservices.googleapis.com/0.0.0.0
-local=/conf.letsmessagenow.com/
-local=/mon-boot.tiktokv.com/
+address=/conf.letsmessagenow.com/0.0.0.0
+address=/mon-boot.tiktokv.com/0.0.0.0
