@@ -10,3 +10,26 @@ local=/clientservices.googleapis.com/
 local=/conf.letsmessagenow.com/
 local=/mon-boot.tiktokv.com/
 local=/stats.lineageos.org/
+# Firebase core domains
+local=/firebase.com/
+local=/firebaseapp.com/
+local=/firebaseio.com/
+local=/firebasedatabase.app/
+
+# Firebase APIs and services
+local=/firebaseinstallations.googleapis.com/
+local=/firebaseremoteconfig.googleapis.com/
+local=/firebaselogging-pa.googleapis.com/
+
+# Crashlytics (Firebase crash reports)
+local=/crashlytics.com/
+local=/crashlyticsreports-pa.googleapis.com/
+local=/firebase-settings.crashlytics.com/
+
+# Firebase Dynamic Links and App Distribution
+local=/firebasedynamiclinks.googleapis.com/
+local=/firebaseperfdatabase.app/
+
+# Firebase Analytics
+local=/app-measurement.com/
+local=/app-measurement.net/
