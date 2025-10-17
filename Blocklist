@@ -33,3 +33,9 @@ local=/firebaseperfdatabase.app/
 # Firebase Analytics
 local=/app-measurement.com/
 local=/app-measurement.net/
+server=/youtube.com/9.9.9.9
+server=/googlevideo.com/9.9.9.9
+server=/ytimg.com/9.9.9.9
+server=/ggpht.com/9.9.9.9
+server=/youtube-nocookie.com/9.9.9.9
+server=/googleusercontent.com/9.9.9.9
