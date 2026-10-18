@@ -8,6 +8,7 @@ URLS = [
     "https://hblock.molinero.dev/hosts_domains.txt",
     "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/refs/heads/master/anti-ad-domains.txt",
     "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/wildcard/ultimate-onlydomains.txt",
+]
   
 def clean(s: str):
     s = s.strip().lower()
