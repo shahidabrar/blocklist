@@ -1,4 +1,31 @@
-name: Build Blocklist
+name: name: Build Blocklist
+
+on:
+  schedule:
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build
+        run: |
+          chmod +x build.sh
+          ./build.sh
+
+      - name: Push to root
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add -f final.txt final.gz final.txt.gz
+          git diff --cached --quiet || git commit -m "Update $(date -u +%Y-%m-%d) - $(wc -l < final.txt) domains"
+          git push Blocklist
 
 on:
   schedule:
