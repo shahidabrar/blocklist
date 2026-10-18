@@ -1,3 +1,5 @@
+.creative.hpyrdr.com
+.hpyrdr.com
 0--4.com
 0--d.com
 0-0-0-0-0-0-0-0-0-0-0-0-0-18-0-0-0-0-0-0-0-0-0-0-0-0-0.info
@@ -37,8 +39,6 @@
 0-web.com
 0-www.tungtunghook.cc
 0-zone.com
-0.0.0.0.creative.hpyrdr.com
-0.0.0.0.hpyrdr.com
 0.0.logitechg.com.cn.obs.cn-north-1.myhuaweicloud.com
 0.0.logitechg.obs.cn-north-1.myhuaweicloud.com
 0.07c225f3.online
@@ -2101,6 +2101,7 @@
 09979.com
 099eb21bb8642fb44fa9ca6e7c03bd73.safeframe.googlesyndication.com
 099yx.com
+09_19.supfree.net
 09a17b315f70.github.io
 09cd3c.www.efeedbacktrk.com
 09comparateursdelannee.com
@@ -4343,6 +4344,9 @@
 10dept.com
 10desires.com
 10dig.net
+10dkim1._domainkey.business.grab.com
+10dkim1._domainkey.chfsmail.ky.gov
+10dkim1._domainkey.mystore.cvs.com
 10doigt.fr
 10dollarbottle.com
 10dollaroutlet.com
@@ -5442,6 +5446,11 @@
 11ctch.com
 11deai.info
 11df2f7d8d.com
+11dkim1._domainkey.ealerts2.bankofamerica.com
+11dkim1._domainkey.mc.ihg.com
+11dkim1._domainkey.mccb.chase.com
+11dkim1._domainkey.mch.chase.com
+11dkim1._domainkey.mcmap.chase.com
 11east68th.com
 11eb0d71246e8e1e0eadc28330cdd6fa.safeframe.googlesyndication.com
 11ef.com
@@ -9629,6 +9638,9 @@
 12dakot.com
 12daysofxmas.com
 12ddesign.com
+12dkim1._domainkey.eg.expedia.com
+12dkim1._domainkey.eg.hotels.com
+12dkim1._domainkey.eg.vrbo.com
 12ezo5v60.com
 12f3dcafe8697ac8da71e441f9f88aa3e41c747e26c206c4500c98c5ddd023c.us-east-1.prod.service.minerva.devices.a2z.com
 12fou.com
@@ -10199,6 +10211,11 @@
 13days.net
 13ddd.com
 13dk.net
+13dkim1._domainkey.homes.penfed.org
+13dkim1._domainkey.mail-mycredit.bankofamerica.com
+13dkim1._domainkey.message.penfed.org
+13dkim1._domainkey.mycreditnavigator.penfed.org
+13dkim1._domainkey.notification.penfed.org
 13dy.com
 13e.de
 13e770eb0c8c8e2087bbba11eb4dd0ce.safeframe.googlesyndication.com
@@ -21819,6 +21836,7 @@
 50d485.www.efeedbacktrk.com
 50d5130604fedd06b6cd4797b7b8d565.safeframe.googlesyndication.com
 50deb82526.com
+50dkim1._domainkey.mail.all.com
 50e1aa00f2805b2f22201900b57cab00.safeframe.googlesyndication.com
 50e57be19a.b0ff04e647.com
 50e7f2cef8.com
@@ -25032,6 +25050,7 @@
 65b8cf0615f1b91de363d3801af1c51b.safeframe.googlesyndication.com
 65cdb78e.diabetes-bewegung.de
 65ct8u3184yn.o3pkvt1w6283gxm2p72qhvb6g.cfd
+65dd0874e4b0e93899a267ad-vinted_de.advertune.com
 65dfa69b39ac6cd47870fbc840be4265.safeframe.googlesyndication.com
 65e52d88-16e5-4b21-bd8e-b32b3c1b7add.collector.p.analitik.bik.gov.tr
 65ed7f8ddc25be755c8e0a660fa90a20.seondnsresolve.com
@@ -45301,6 +45320,7 @@ acd1.hiad.vmall.com
 acdc-strom.de
 acdc.api.dmp.nsaudience.pl
 acdcdn.com
+acdkim1._domainkey.acems1.com
 acdkim1.acems1.com
 acdkpbpzpjekb.website
 acdn.adnxs-simple.com
@@ -58798,6 +58818,7 @@ adx.xtv.vn
 adx.y-one.co.jp
 adx.ys7.com
 adx01.groovinads.com
+adx01_pool.groovinads.com
 adx1.com
 adx1js.s3.amazonaws.com
 adx2.adform.net
@@ -104241,6 +104262,7 @@ assets2.terrischeer.com.au
 assets2.vanz.vero.co.nz
 assets2.vero.co.nz
 assets2.vero.com.au
+assets_lastdodo_com.oszar.com
 assetscdn.jivox.com
 assetscdn.pushengage.com
 assetscdn.stackla.com
@@ -108737,6 +108759,7 @@ avast-france.fr
 avast.cname.getrockerbox.com
 avast.legratuits.com
 avast.telemetry.eyeo.com
+avast_browser_tiles.tiles.ampfeed.com
 avastmobiletiles.tiles.ampfeed.com
 avasuite.com
 avatacar.eulerian.net
@@ -122909,6 +122932,9 @@ bidmachine.east-s2s.1rx.io
 bidmachine.eu-s2s.1rx.io
 bidmachine.io
 bidmachine.west-s2s.1rx.io
+bidmachine_eu.rtb.rtblab.net
+bidmachine_sg.rtb.rtblab.net
+bidmachine_us.rtb.rtblab.net
 bidmachineexeu.digital-services.solutions
 bidmachineo-us-east-1.ad.smaato.net
 bidmask.com
@@ -127848,6 +127874,7 @@ bmcollisiontx.site
 bmcqurmfaom.com
 bmcui.crocs.nl
 bmdcompany.com
+bmdeda._domainkey.bmsend.com
 bmdeit3.site
 bmdeit4.site
 bmdffai.zerowastestore.com
@@ -134609,6 +134636,9 @@ bs9syo-launches.appsflyersdk.com
 bs9syo.cdn-settings.appsflyersdk.com
 bs9syo.inapps.appsflyersdk.com
 bs9syo.launches.appsflyersdk.com
+bs_3405237a.cryptocalls.care
+bs_34e64e4f.cryptocalls.care
+bs_e3d6ce18.rabid.care
 bsa1.grandcoulee.com
 bsacbjemqhdig.site
 bsacvjvgpgsgi.website
@@ -138162,6 +138192,7 @@ bynwatch.de
 byoeg.ck99n4uvwmi73uu.cyou
 byously.deepinghachepogey.cyou
 byouslyfrit.cfd
+byov72n2ldcev78_gcxyeixzj6ld7dsawvffy3peaqb.hit.gemius.pl
 byoviral.com
 byowner.fr
 byoxcmxcprhztn.com
@@ -141670,6 +141701,7 @@ campaign.telegram.hr
 campaign.thehindubusinessline.com
 campaign.viessmann-cold.com
 campaign.zurn.com
+campaign_logger-prod-ga.jornaya.com
 campaigncog.com
 campaignified.xyz
 campaigninfo.motorolasolutions.com
@@ -167118,6 +167150,10 @@ com052bin.com
 com24.at
 com495.ru
 com5.com.cn
+com_amazon_amazon.triggers-v1.prod.mobile.weblab.a2z.com
+com_amazon_clouddrive_photos.triggers-v1.prod.mobile.weblab.a2z.com
+com_amazon_firetv_remote.allocations-v1.prod.mobile.weblab.a2z.com
+com_amazon_firetv_remote.treatment-assignment-overrides-v1.prod.mobile.weblab.a2z.com
 comabank.cod4.alibabarab.com
 comacstnew.weebly.com
 comadjust.com
@@ -177969,6 +178005,7 @@ cs1979sbeda.residence-customize.com
 cs1dhczyb5.data.adobedc.net
 cs1g.com
 cs2.mathilde-ads.com
+cs2013._domainkey.cmail2.com
 cs2087sbeda.aspex.co.jp
 cs2087sbeda.haken-kanri.net
 cs2087sbeda.manage-tempstaffing.net
@@ -177993,6 +178030,7 @@ cs4fav.launches.appsflyersdk.com
 cs6hm.com
 cs6serial.net
 cs6serialcrack.com
+cs_abcdef_wiki.oszar.com
 csa.pttavm.com
 csa.weryfikacja-konta.com
 csa2.centre-sainte-anne.nb.ca
@@ -193199,6 +193237,7 @@ dc-11667651.fls.doubleclick.net
 dc-8361001.fls.doubleclick.net
 dc-8712732.fls.doubleclick.net
 dc-9045885.fls.doubleclick.net
+dc-aa8e722993._spfm.k12mathworksheets.com
 dc-cdp.credit-agricole.it
 dc-didata-lab-2-zrqnkkhvcn.dynamic-m.com
 dc-dragate-cn.heytapmobi.com
@@ -195091,6 +195130,7 @@ def-platform.net
 def.5.p2l.info
 def.bayer04.de
 def.dev-nano.com
+def1._domainkey.shared.klaviyomail.com
 def1.optimhome-recrutement.com
 def30qw5ks4uw.cloudfront.net
 defabc.black-label-coffee.de
@@ -222590,6 +222630,7 @@ emlratesnbd-upgrade.icu
 emlsend.com
 emltrk.com
 emlytics.me
+emm._domainkey.ncm14.com
 emm.ca.puma.com
 emm.us.puma.com
 emma-frankfurt.com
@@ -223412,6 +223453,7 @@ endpoint96.smartbid.ai
 endpoint97.smartbid.ai
 endpoint98.smartbid.ai
 endpoint99.smartbid.ai
+endpoint_eu.copper6.com
 endpointoutbreakpoint.net
 endpoints.prod.craftsmanplus.com
 endpt.asteriobid.com
@@ -238203,6 +238245,7 @@ fb710f046ee2caf89862b0509a488344.safeframe.googlesyndication.com
 fb7do8.inapps.appsflyersdk.com
 fb90d6d1-329e-4cc4-b5d7-4f98bc170771-00-1tvydqx90kw7f.spock.replit.dev
 fb9h4.lg8ems.top
+fb_servpub-a.akamaihd.net
 fba-inbound-uiss-console-eu.net.mydays.de
 fbabhget.com
 fbac.fr
@@ -300129,6 +300172,7 @@ ibyyj9.launches.appsflyersdk.com
 ic-auxlog-ec.app.prismriotads.com
 ic-auxlog-wc.app.prismriotads.com
 ic-live.com
+ic-nss_fhcdngroup_online.oszar.com
 ic.adobe.io
 ic.affinitymatrix.com
 ic.avoweddehorns.cfd
@@ -305001,6 +305045,7 @@ img8787.gjl15.com
 img8799.zjqjs.com
 img9.1133.cc
 img9.3393.com
+img_icons8_com.oszar.com
 imgad.thepaper.cn
 imgad0.3conline.com
 imgad0.pcauto.com.cn
@@ -316401,6 +316446,7 @@ it8ebh.gcdsdk.appsflyersdk.com
 it8ebh.inapps.appsflyersdk.com
 it8ebh.launches.appsflyersdk.com
 it8ebh.pia.appsflyersdk.com
+it_abcdef_wiki.oszar.com
 ita-facebook.com
 ita.mybluehost.me
 ita.stripchat.com
@@ -322373,6 +322419,7 @@ johnsonoutdoorsus.api.useinsider.com
 johnsonsmith.evergage.com
 johnston.grapeshot.co.uk
 johnston.net.mydays.de
+johnstone_supply.ecorebates.com
 johnstonmurphycapital.com
 johov.com
 johqbazqtbbnz.site
@@ -341676,6 +341723,7 @@ lb-sgtm.signatures-scents.com
 lb-us-v.vidora.com
 lb-vlyby-tracking-572276785.eu-central-1.elb.amazonaws.com
 lb-was.mgid.com
+lb._dns-sd._udp.ad.uwm.edu
 lb.aatkit.com
 lb.aaxads.com
 lb.acoupfoughty.com
@@ -368418,6 +368466,7 @@ maia-asso.fr
 maiaa.fr
 maiaccaurceole.cfd
 maiadie-assurance.fr
+maidan_kfk2es.dreport.meituan.net
 maidcontrarypenknife.com
 maideatp.com
 maidenblankets.store
@@ -505481,6 +505530,7 @@ runelite.cc
 runequantholm.net
 runerank.org
 runes.andorsowarswillier.cfd
+runescape_wiki.oszar.com
 runetki-online.net
 runetki.co
 runetki.com
@@ -528359,6 +528409,7 @@ service4.us.incognia.com
 service4refresh.info
 service70724.evoled.pl
 service88705.dialson.pl
+service_client.fyber.com
 serviceaccibuburkotawisata.space
 serviceaccount.fr
 serviceachat-sccfrance.fr
@@ -543402,6 +543453,8 @@ smaad.jp
 smaato-match.dotomi.com
 smaato.com
 smaato.net
+smaato_outstream_ad_template.txt.sdk-files.smaato.net
+smaato_sdk_remote_config.json.sdk-files.smaato.net
 smab.jp
 smac-ad.com
 smac-ssp.com
@@ -549382,6 +549435,8 @@ smtijogja.sch.id
 smtlm.cc
 smtmakine.com
 smtnscerver.beer
+smtp-01._spf.papmail.prod-ec1.cluster.postaffiliatepro.com
+smtp-01._spf.papmail.prod-ue1.cluster.postaffiliatepro.com
 smtp-authentication-resolve.netlify.app
 smtp-in.bluehornet.com
 smtp-prod-02.nbg.webtrekk.com
@@ -595179,6 +595234,7 @@ sync2.resetdigital.co
 sync2ad.com
 sync3.adsniper.ru
 sync6.im-apps.net
+sync_events.atsptp.com
 syncaccess.net
 syncaccount.us
 syncadnimation.com.cootlogix.com
@@ -622254,6 +622310,8 @@ tracker.zmaticoo.com
 tracker1.ep-solutions.at
 tracker1.leadiya.com
 tracker24-gps.ru
+tracker_ads.contentexchange.me
+tracker_ug.contentexchange.me
 trackerads.com
 trackerapi.defacto.com
 trackerapi.ebxcdn.com
@@ -639861,6 +639919,7 @@ upload.uk.upath.navify.com
 upload.us.upath.navify.com
 upload2.fp.measure.office.com.akamaized.net
 upload4earn.org
+upload_wikimedia_org.oszar.com
 uploadamigo.com
 uploadbox.com
 uploadbuzz.cc
@@ -663320,6 +663379,7 @@ wallpaper-service-sg.allawnos.com
 wallpaper.cloud.duba.net
 wallpaperdesk.info
 wallpapers-all.com
+wallpapers_com.oszar.com
 wallpapersfacts.com
 wallpapershomes.com
 wallpapersut.com
@@ -670730,6 +670790,7 @@ wikiforosh.ir
 wikifx.com
 wikihow-com.videoplayerhub.com
 wikihow-d.openx.net
+wikimedia_org.oszar.com
 wikimedics.org
 wiking.cerebraseptile.qpon
 wikipedia.re
@@ -685024,6 +685085,7 @@ www.colorking.es
 www.colors-app.blogspot.com
 www.com-audible-application.triggers-v1.prod.mobile.weblab.a2z.com
 www.com-dk.com
+www.com_amazon_clouddrive_photos.triggers-v1.prod.mobile.weblab.a2z.com
 www.comagic.ru
 www.combinebasic.com
 www.comcastbiz.com
@@ -709751,6 +709813,11 @@ x9qt2mv.qpon
 x9t78gmg37.wnkox16mercn2zxu.cyou
 x9t7g4m2qk2.azurewebsites.net
 x9wt3mq.skin
+x_x-askfollow-us.translate.goog
+x_x-freeadd-me.translate.goog
+x_x-more--followers-com.translate.goog
+x_x-twitob-com.translate.goog
+x_x-twitterfollowers-site.translate.goog
 xa-pqr.fit
 xa-pqr.net
 xa.boozierosmotic.com
@@ -728720,6 +728787,30 @@ zn9yzccm1gaf8emnk-ehi.siteintercept.qualtrics.com
 zn9yzts0gfbywaaie-smiles.siteintercept.qualtrics.com
 zn9zbcpytdp6xzcnx-dropbox.siteintercept.qualtrics.com
 zn9zfoerjle9liix4-geisinger.siteintercept.qualtrics.com
+zn_0mwmqvmzhpnrkyv-usbank.siteintercept.qualtrics.com
+zn_0oyf73utgoqzb1x-geico.siteintercept.qualtrics.com
+zn_1jwutsd7eo1ycum-americanairlines.siteintercept.qualtrics.com
+zn_1qftb0g6smthsy8-citizensbank.siteintercept.qualtrics.com
+zn_1zq956xeg7fgsj0-homedepot.siteintercept.qualtrics.com
+zn_3dctib7u7ocbwpa-etraveli.siteintercept.qualtrics.com
+zn_3edajdvgwonv9nr-tmobilecx.siteintercept.qualtrics.com
+zn_3erekva7djpni2w-telecom.siteintercept.qualtrics.com
+zn_3segcp4miarrajs-nablistens.siteintercept.qualtrics.com
+zn_3siux5otvvf1mct-intuit.siteintercept.qualtrics.com
+zn_3subgiyvjivwe48-transatatinc.siteintercept.qualtrics.com
+zn_5ij1dnxukjmjaxf-1800flowers.siteintercept.qualtrics.com
+zn_6fjvla2nzko4ezj-transatatinc.siteintercept.qualtrics.com
+zn_6vxkyqywaf9f1t7-usbank.siteintercept.qualtrics.com
+zn_7nj5omfyyzlxou5-tmobilecx.siteintercept.qualtrics.com
+zn_7tigtjldhmkxcv4-tiaa2.siteintercept.qualtrics.com
+zn_b45b9w3mja0rzkz-danskebank.siteintercept.qualtrics.com
+zn_beclzujl9isg25t-intuitsocial.siteintercept.qualtrics.com
+zn_brwyqvqktmdrgvz-breakingmedia.siteintercept.qualtrics.com
+zn_csm0ge4rs5bt95q-etraveli.siteintercept.qualtrics.com
+zn_cusgjcf7grapzvd-geico.siteintercept.qualtrics.com
+zn_cutbb1dknby3njp-tuigroup.siteintercept.qualtrics.com
+zn_dd4yceaftzmcwcz-tiaa2.siteintercept.qualtrics.com
+zn_e40ogkle3l46heo-etraveli.siteintercept.qualtrics.com
 zna059kft4kk3ikae-skydesign.siteintercept.qualtrics.com
 zna3jy0rq91zo918a-mountainequipment.siteintercept.qualtrics.com
 zna4alzy2ud7irc5e-sbb.siteintercept.qualtrics.com
