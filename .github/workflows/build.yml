@@ -18,15 +18,18 @@ jobs:
         with:
           python-version: "3.11"
 
-      - run: pip install requests
+      - name: Build
+        run: |
+          pip install requests
+          python build.py
+          echo "--- COUNT ---"
+          wc -l final.txt
+          ls -lh final.txt final.gz final.txt.gz
 
-      - run: python build.py
-
-      - name: Upload to root
+      - name: Commit to root
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
-          ls -lh final.*
           git add -f final.txt final.gz final.txt.gz
-          git diff --cached --quiet || git commit -m "Update final.txt $(date -u +%Y-%m-%d)"
+          git diff --cached --quiet || git commit -m "Update $(date -u +%Y-%m-%d) - $(wc -l < final.txt) domains"
           git push
