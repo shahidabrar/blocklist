@@ -1,11 +1,10 @@
 import gzip
 import os
-import re
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import List, Set
 
-# Source filter lists (Adblock Plus / uBlock Origin / hosts syntax)
+# Source filter lists
 SOURCES: List[str] = [
     "https://adaway.org/hosts.txt",
     "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts",
@@ -13,8 +12,8 @@ SOURCES: List[str] = [
 ]
 
 OUTPUT_DIR = "output"
-OUTPUT_TXT = os.path.join(OUTPUT_DIR, "adblock_combined.txt")
-OUTPUT_GZ = os.path.join(OUTPUT_DIR, "adblock_combined.txt.gz")
+OUTPUT_TXT = os.path.join(OUTPUT_DIR, "deduped.txt")
+OUTPUT_GZ = os.path.join(OUTPUT_DIR, "deduped.gz")
 
 
 def fetch_url(url: str) -> List[str]:
@@ -28,22 +27,21 @@ def fetch_url(url: str) -> List[str]:
             content = response.read().decode("utf-8", errors="ignore")
             return content.splitlines()
     except Exception as e:
-        print(f"[!] Error fetching {url}: {e}")
+        print(f"[!] Warning: Failed fetching {url}: {e}")
         return []
 
 
 def is_valid_rule(line: str) -> bool:
-    """Filter out empty lines and header/comment lines."""
+    """Filter out empty lines and comments."""
     if not line:
         return False
-    # Comments in Adblock/Hosts formats: !, #, [, or Adblock title metadata
     if line.startswith(("!", "#", "[", "%")):
         return False
     return True
 
 
 def clean_line(line: str) -> str:
-    """Normalize line by stripping whitespace."""
+    """Normalize line by stripping surrounding whitespace."""
     return line.strip()
 
 
@@ -52,13 +50,13 @@ def main():
     seen_rules: Set[str] = set()
     deduped_rules: List[str] = []
 
-    print("[*] Downloading source lists...")
+    print("[*] Downloading lists...")
     with ThreadPoolExecutor(max_workers=5) as executor:
         futures = {executor.submit(fetch_url, url): url for url in SOURCES}
         for future in as_completed(futures):
             url = futures[future]
             lines = future.result()
-            print(f"[+] Retrieved {len(lines):,} lines from {url}")
+            print(f"[+] Loaded {len(lines):,} lines from {url}")
 
             for raw_line in lines:
                 cleaned = clean_line(raw_line)
@@ -66,29 +64,27 @@ def main():
                     seen_rules.add(cleaned)
                     deduped_rules.append(cleaned)
 
-    print(f"\n[*] Total unique rules collected: {len(deduped_rules):,}")
+    print(f"\n[*] Unique rules: {len(deduped_rules):,}")
 
     header = (
-        "! Title: Custom Combined Blocklist\n"
+        "! Title: Combined Deduped Filterlist\n"
         f"! Total Rules: {len(deduped_rules)}\n"
-        "! Syntax: Adblock Plus / Hosts\n"
         "! ----------------------------------------\n"
     )
 
-    body = "\n".join(deduped_rules) + "\n"
-    full_content = header + body
+    full_content = header + "\n".join(deduped_rules) + "\n"
 
-    # 1. Write plain text version
-    print(f"[*] Writing uncompressed text to {OUTPUT_TXT}...")
+    # 1. Plain text format: deduped.txt
+    print(f"[*] Writing text to {OUTPUT_TXT}...")
     with open(OUTPUT_TXT, "w", encoding="utf-8") as f:
         f.write(full_content)
 
-    # 2. Write gzip-compressed version
-    print(f"[*] Writing gzip-compressed file to {OUTPUT_GZ}...")
+    # 2. Gzip format: deduped.gz
+    print(f"[*] Writing gzip to {OUTPUT_GZ}...")
     with gzip.open(OUTPUT_GZ, "wt", encoding="utf-8") as f_gz:
         f_gz.write(full_content)
 
-    print("[✓] Build complete.")
+    print("[✓] Finished generating deduped.txt and deduped.gz")
 
 
 if __name__ == "__main__":
