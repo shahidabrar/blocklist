@@ -1,7 +1,6 @@
 #!/bin/bash
 set -e
 
-# URLs
 URLS=(
   "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/wildcard/pro-onlydomains.txt"
   "https://github.com/badmojr/1Hosts/releases/download/latest/1hosts-Lite_domains.txt"
@@ -11,16 +10,20 @@ URLS=(
   "https://raw.githubusercontent.com/bigdargon/hostsVN/refs/heads/master/filters/adservers-all.txt"
 )
 
+# CLEAN - important! fixes 15mb bug
+rm -rf raw/
+rm -f final.txt final.gz final.txt.gz
 mkdir -p raw
-rm -f raw/*.txt
 
 echo "Downloading..."
+i=0
 for url in "${URLS[@]}"; do
-  echo "GET $url"
-  curl -L --fail --connect-timeout 30 --max-time 120 -o "raw/list_$RANDOM.txt" "$url" || echo "FAIL $url"
+  i=$((i+1))
+  echo "[$i/${#URLS[@]}] $url"
+  curl -L --fail --connect-timeout 30 --max-time 180 -s -o "raw/$i.txt" "$url" || echo "FAIL $url"
 done
 
-echo "Processing with your cat pipeline..."
+echo "Processing..."
 cat raw/*.txt | \
   grep -v '^[#!]' | \
   grep -v '^$' | \
@@ -33,15 +36,11 @@ cat raw/*.txt | \
       -e 's/\$.*$//' | \
   grep -E '^[a-z0-9._-]+\.[a-z]{2,}$' | \
   tr 'A-Z' 'a-z' | \
-  sort -u > final.txt
+  LC_ALL=C sort -u > final.txt
 
-# Also handle ADG @@ whitelist (skip @@ lines)
-grep -vi '^@@' final.txt | sort -u -o final.txt
-
-# Create gz
 gzip -9 -k -f final.txt
 cp -f final.txt.gz final.gz
 
-echo "--- DONE ---"
+echo "DONE:"
 wc -l final.txt
-ls -lh final.txt final.gz final.txt.gz
+ls -lh final.txt final.gz
