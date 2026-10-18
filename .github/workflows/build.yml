@@ -14,12 +14,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build
-        run: |
-          chmod +x build.sh
-          bash build.sh
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
-      - name: Push
+      - name: Install + Build
+        run: |
+          pip install requests
+          rm -f final.txt final.gz final.txt.gz
+          python build.py
+          wc -l final.txt
+          ls -lh final.*
+
+      - name: Push to root
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
