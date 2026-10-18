@@ -1,5 +1,3 @@
-.creative.hpyrdr.com
-.hpyrdr.com
 0--4.com
 0--d.com
 0-0-0-0-0-0-0-0-0-0-0-0-0-18-0-0-0-0-0-0-0-0-0-0-0-0-0.info
@@ -39,6 +37,8 @@
 0-web.com
 0-www.tungtunghook.cc
 0-zone.com
+0.0.0.0.creative.hpyrdr.com
+0.0.0.0.hpyrdr.com
 0.0.logitechg.com.cn.obs.cn-north-1.myhuaweicloud.com
 0.0.logitechg.obs.cn-north-1.myhuaweicloud.com
 0.07c225f3.online
