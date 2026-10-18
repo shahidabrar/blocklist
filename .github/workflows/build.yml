@@ -1,36 +1,48 @@
-name: Build Blocklist
+name: Update and Deploy Adblock Lists
 
 on:
   schedule:
-    - cron: "0 2 * * *"
-  workflow_dispatch:
-  push:
-    paths:
-      - "build.py"
+    - cron: '0 4 * * *'  # Runs daily at 04:00 UTC
+  workflow_dispatch:      # Allows manual trigger from GitHub UI
 
 permissions:
   contents: write
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out repository
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: '3.11'
 
-      - run: pip install requests
+      - name: Run list aggregation script
+        run: python update_lists.py
 
-      - name: Build deduped list
-        run: python build.py
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: adblock-lists
+          path: output/
 
-      - name: Upload to root
+      - name: Commit and Push Updated Lists
         run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          ls -lh blocklist.txt*
-          git add -f blocklist.txt blocklist.txt.gz
-          git diff --cached --quiet || git commit -m "Update $(date -u +%Y-%m-%d) - $(wc -l < blocklist.txt) domains"
-          git push
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          # Move output files to root or a dedicated lists folder if desired
+          mkdir -p lists
+          cp output/* lists/
+          
+          git add lists/
+          if git status --porcelain | grep lists; then
+            git commit -m "Auto-update adblock lists [skip ci]"
+            git push
+          else
+            echo "No changes detected in adblock lists."
+          fi
