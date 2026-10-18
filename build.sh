@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 URLS=(
   "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/wildcard/pro-onlydomains.txt"
@@ -10,7 +9,6 @@ URLS=(
   "https://raw.githubusercontent.com/bigdargon/hostsVN/refs/heads/master/filters/adservers-all.txt"
 )
 
-# CLEAN - important! fixes 15mb bug
 rm -rf raw/
 rm -f final.txt final.gz final.txt.gz
 mkdir -p raw
@@ -19,14 +17,17 @@ echo "Downloading..."
 i=0
 for url in "${URLS[@]}"; do
   i=$((i+1))
-  echo "[$i/${#URLS[@]}] $url"
-  curl -L --fail --connect-timeout 30 --max-time 180 -s -o "raw/$i.txt" "$url" || echo "FAIL $url"
+  echo "[$i] $url"
+  curl -L --connect-timeout 30 --max-time 180 -s -o "raw/$i.txt" "$url" || echo "WARN fail $url"
 done
 
+ls -lh raw/
+
 echo "Processing..."
+# Added || true to prevent fail when grep finds 0 lines
 cat raw/*.txt | \
-  grep -v '^[#!]' | \
-  grep -v '^$' | \
+  grep -v '^[#!]' || true | \
+  grep -v '^$' || true | \
   sed -e 's/^[ \t]*//' \
       -e 's/[ \t]*$//' \
       -e 's/^0\.0\.0\.0[ \t]*//' \
@@ -34,13 +35,20 @@ cat raw/*.txt | \
       -e 's/^||//' \
       -e 's/\^.*$//' \
       -e 's/\$.*$//' | \
-  grep -E '^[a-z0-9._-]+\.[a-z]{2,}$' | \
+  grep -E '^[a-z0-9._-]+\.[a-z]{2,}$' || true | \
   tr 'A-Z' 'a-z' | \
   LC_ALL=C sort -u > final.txt
+
+if [ ! -s final.txt ]; then
+  echo "ERROR: final.txt empty! raw files:"
+  wc -l raw/*.txt
+  cat raw/*.txt | head -20
+  exit 1
+fi
 
 gzip -9 -k -f final.txt
 cp -f final.txt.gz final.gz
 
-echo "DONE:"
 wc -l final.txt
-ls -lh final.txt final.gz
+ls -lh final.*
+echo "OK"
