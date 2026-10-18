@@ -1,48 +1,54 @@
-name: Update and Deploy Adblock Lists
+name: Update Deduped Adblock Lists
 
 on:
   schedule:
-    - cron: '0 4 * * *'  # Runs daily at 04:00 UTC
-  workflow_dispatch:      # Allows manual trigger from GitHub UI
+    - cron: '0 4 * * *'
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out repository
+      - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Run list aggregation script
+      - name: Run deduplication script
         run: python update_lists.py
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: adblock-lists
-          path: output/
+          name: deduped-lists
+          path: |
+            output/deduped.txt
+            output/deduped.gz
 
-      - name: Commit and Push Updated Lists
+      - name: Commit and push files
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Move files to the repo root so your link is clean
+          cp output/deduped.txt deduped.txt
+          cp output/deduped.gz deduped.gz
+
+          git add deduped.txt deduped.gz
           
-          # Move output files to root or a dedicated lists folder if desired
-          mkdir -p lists
-          cp output/* lists/
-          
-          git add lists/
-          if git status --porcelain | grep lists; then
-            git commit -m "Auto-update adblock lists [skip ci]"
-            git push
+          if git diff --staged --quiet; then
+            echo "No changes found in deduped lists."
           else
-            echo "No changes detected in adblock lists."
+            git commit -m "chore: update deduped lists [skip ci]"
+            git pull --rebase origin main
+            git push origin main
           fi
