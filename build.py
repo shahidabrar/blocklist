@@ -7,11 +7,9 @@ BLOCKLISTS = [
     'https://github.com/badmojr/1Hosts/releases/download/latest/1hosts-Lite_domains.txt',
     'https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/refs/heads/master/anti-ad-domains.txt',
     'https://hblock.molinero.dev/hosts_domains.txt',
-    'https://raw.githubusercontent.com/AdguardTeam/cname-trackers/master/data/combined_disguised_trackers_justdomains.txt',
     'https://v.firebog.net/hosts/AdguardDNS.txt',
     'https://raw.githubusercontent.com/bigdargon/hostsVN/refs/heads/master/filters/adservers-all.txt',
-    'https://raw.githubusercontent.com/hagezi/dns-blocklists/main/wildcard/tif-onlydomains.txt',
-    'https://big.oisd.nl/domainswild',
+
 ]
 
 OUTPUT_TXT = pathlib.Path("blocklist.txt")
