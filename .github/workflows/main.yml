@@ -1,33 +1,29 @@
-name: Build Blocklist          # 1. Workflow name (shown in Actions tab)
+name: Build
 
-on:                            # 2. When to run
-  push:
-    branches: [main]
+on:
+  workflow_dispatch:
   schedule:
-    - cron: "0 2 * * *"        # daily 2am UTC
-  workflow_dispatch:           # manual run button
+    - cron: "0 2 * * *"
 
-permissions:                   # 3. Permission to push
+permissions:
   contents: write
 
-jobs:                          # 4. Jobs to run
-  build:                       # Job ID (any name)
-    runs-on: ubuntu-latest     # Runner OS
-
-    steps:                     # 5. Steps in order
-      - name: Checkout code
-        uses: actions/checkout@v4   # use pre-made action
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-
-      - name: Run build
-        run: |                      # run shell command
+      - run: |
+          pip install requests
+          rm -f final.*
           python build.py
-
-      - name: Push back
-        run: |
-          git config user.name "bot"
+          ls -lh final.*
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add -f final.txt final.gz final.txt.gz
+          git diff --cached --quiet || git commit -m "Update $(date -u)"
           git push
