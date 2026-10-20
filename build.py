@@ -4,8 +4,7 @@ DOMAIN = re.compile(r'^[a-z0-9._-]+\.[a-z]{2,}$')
 
 URLS = [
     "https://github.com/badmojr/1Hosts/releases/download/latest/1hosts-Lite_domains.wildcards",
-    "https://raw.githubusercontent.com/bigdargon/hostsVN/refs/heads/master/filters/adservers-all.txt",
-  "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/refs/heads/master/anti-ad-domains.txt",
+     "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/refs/heads/master/anti-ad-domains.txt",
     "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/wildcard/ultimate-onlydomains.txt",
 ]
   
