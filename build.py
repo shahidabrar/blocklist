@@ -4,7 +4,7 @@ DOMAIN = re.compile(r'^[a-z0-9._-]+\.[a-z]{2,}$')
 
 URLS = [
     "https://github.com/badmojr/1Hosts/releases/download/latest/1hosts-Lite_domains.wildcards",
-    "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/wildcard/ultimate-onlydomains.txt",
+    "https://raw.githubusercontent.com/hagezi/dns-blocklists/refs/heads/main/wildcard/pro.plus-onlydomains.txt",
 ]
   
 def clean(s: str):
