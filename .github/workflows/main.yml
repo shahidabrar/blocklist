@@ -1,105 +1,20 @@
-name: Update Blocklist
-
-on:
-  schedule:
-    - cron: '15 3 * * *' # Runs daily at 03:15 UTC
-  workflow_dispatch:     # Allows manual trigger from the Actions tab
-  push:
-    branches: [ main ]
-    paths:
-      - '.github/workflows/update-blocklist.yml'
-      - 'build.py'
-
-permissions:
-  contents: write
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+name: build
+on: [push, workflow_dispatch]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
-
-      - name: Install dependencies
-        run: pip install requests
-
-      - name: Fetch and build blocklists
-        run: |
-          python3 - << 'EOF'
-          import gzip
-          import pathlib
-          import re
-          import shutil
-          import requests
-
-          DOMAIN = re.compile(
-              r'^(?:[a-z0-9_](?:[a-z0-9_-]{0,61}[a-z0-9_])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$'
-          )
-
-          URLS = [
-              "https://github.com/badmojr/1Hosts/releases/download/latest/1hosts-Lite_domains.wildcards",
-              "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/wildcard/ultimate-onlydomains.txt",
-          ]
-
-          def clean(s: str) -> str | None:
-              s = s.strip().lower()
-              if not s or s[0] in '#!':
-                  return None
-              s = re.sub(r'^(?:0\.0\.0\.0|127\.0\.0\.1)[ \t]+', '', s)
-              s = re.sub(r'^\|\|', '', s)
-              s = re.sub(r'^\*\.', '', s)
-              s = re.sub(r'[\^$].*$', '', s)
-              parts = s.split()
-              if not parts:
-                  return None
-              s = parts[0].strip('.')
-              return s if DOMAIN.match(s) else None
-
-          out = set()
-          for url in URLS:
-              print(f"GET {url}", flush=True)
-              try:
-                  r = requests.get(url, timeout=180)
-                  r.raise_for_status()
-                  for line in r.text.splitlines():
-                      d = clean(line)
-                      if d:
-                          out.add(d)
-              except Exception as e:
-                  print(f"FAIL {url}: {e}", flush=True)
-
-          if not out:
-              raise SystemExit("Error: 0 domains collected; aborting to avoid overwriting with empty file.")
-
-          content = "\n".join(sorted(out)) + "\n"
-          pathlib.Path("final.txt").write_text(content, encoding="utf-8")
-
-          with gzip.open("final.txt.gz", "wt", encoding="utf-8", compresslevel=9, mtime=0) as f:
-              f.write(content)
-
-          shutil.copyfile("final.txt.gz", "final.gz")
-          print(f"DONE {len(out)} domains", flush=True)
-          EOF
-
-      - name: Commit and push if changed
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add final.txt final.txt.gz final.gz
-          if git diff --cached --quiet; then
-            echo "No changes in domain list."
-          else
-            git commit -m "chore: update blocklist ($(wc -l < final.txt) domains)"
-            git push
-          fi
+          python-version: "3.11"
+      - run: pip install requests
+      - run: python build.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blocklist
+          path: |
+            final.txt
+            final.txt.gz
+            final.gz
