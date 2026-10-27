@@ -2,7 +2,6 @@ name: Build ESP32-C3 Blocklist
 
 on:
   schedule:
-    # Runs daily at 00:00 UTC to fetch the latest upstream blocklists
     - cron: '0 0 * * *'
   workflow_dispatch:
     inputs:
@@ -22,7 +21,7 @@ on:
       - '.github/workflows/build-blocklist.yml'
 
 permissions:
-  contents: write # Required to publish/update the GitHub Release asset
+  contents: write
 
 jobs:
   build-blob:
@@ -49,18 +48,22 @@ jobs:
             SCRIPT_PATH="scripts/build_blocklist.py"
           fi
 
-          echo "### 🛡️ ESP32-C3 Blocklist Build Summary" >> $GITHUB_STEP_SUMMARY
-          echo '```text' >> $GITHUB_STEP_SUMMARY
+          # Sanitize any accidental non-breaking spaces (U+00A0) in the Python script
+          python3 -c "p='$SCRIPT_PATH'; open(p,'w').write(open(p).read().replace('\u00a0',' '))"
 
-          # Execute script and tee stdout to the GitHub Actions Job Summary
+          # Run the script and save output to a log file (avoids pipe character corruption)
           if [ -n "$CUSTOM_SOURCES" ]; then
-            # Word splitting on CUSTOM_SOURCES is intentional to pass multiple URL args
-            python3 "$SCRIPT_PATH" "$OUT_FILE" $CUSTOM_SOURCES \vert{} tee -a$GITHUB_STEP_SUMMARY
+            python3 "$SCRIPT_PATH" "$OUT_FILE" $CUSTOM_SOURCES > build_stats.log
           else
-            python3 "$SCRIPT_PATH" "$OUT_FILE" \vert{} tee -a $GITHUB_STEP_SUMMARY
+            python3 "$SCRIPT_PATH" "$OUT_FILE" > build_stats.log
           fi
 
-          echo '```' >> $GITHUB_STEP_SUMMARY
+          # Print stats to the console log and append to GitHub Job Summary
+          cat build_stats.log
+          echo "### 🛡️ ESP32-C3 Blocklist Build Summary" >> "$GITHUB_STEP_SUMMARY"
+          echo '```text' >> "$GITHUB_STEP_SUMMARY"
+          cat build_stats.log >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
 
       - name: Verify binary size budget
         env:
@@ -72,7 +75,6 @@ jobs:
           fi
           SIZE=$(stat -c%s "$OUT_FILE")
           echo "Verified binary size: $SIZE bytes"
-          # Warn if binary exceeds ~1.5 MB (typical dual-OTA partition ceiling on 4MB flash)
           if [ "$SIZE" -gt 1572864 ]; then
             echo "::warning::blocklist.bin ($SIZE bytes) exceeds 1.5 MB. Ensure your ESP32-C3 partition table fits this blob!"
           fi
@@ -90,7 +92,6 @@ jobs:
           OUT_FILE: ${{ inputs.output_name || 'blocklist.bin' }}
         run: |
           TAG="latest"
-          # Create the 'latest' release if it doesn't exist yet, otherwise overwrite the binary asset
           if ! gh release view "$TAG" >/dev/null 2>&1; then
             gh release create "$TAG" "$OUT_FILE" \
               --title "Latest Compiled Blocklist" \
