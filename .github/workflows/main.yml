@@ -1,31 +1,26 @@
-name: Build ESP32-C3 Blocklist
+name: Update Blocklist
 
 on:
   schedule:
-    - cron: '0 0 * * *'
-  workflow_dispatch:
-    inputs:
-      output_name:
-        description: 'Output binary filename'
-        required: false
-        default: 'blocklist.bin'
-      custom_sources:
-        description: 'Optional space-separated URLs/files (leave empty for DEFAULT_SOURCES)'
-        required: false
-        default: ''
+    - cron: '15 3 * * *' # Runs daily at 03:15 UTC
+  workflow_dispatch:     # Allows manual trigger from the Actions tab
   push:
-    branches: [ "main", "master" ]
+    branches: [ main ]
     paths:
-      - 'build_blocklist.py'
-      - 'scripts/build_blocklist.py'
-      - '.github/workflows/build-blocklist.yml'
+      - '.github/workflows/update-blocklist.yml'
+      - 'build.py'
 
 permissions:
-  contents: write
+  contents: write        # Required to commit and push generated files
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  build-blob:
+  build:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Checkout repository
@@ -35,69 +30,77 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+          cache: 'pip'
 
-      - name: Generate FNV-1a hash blob
-        id: build
-        env:
-          OUT_FILE: ${{ inputs.output_name || 'blocklist.bin' }}
-          CUSTOM_SOURCES: ${{ inputs.custom_sources }}
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Fetch and build blocklists
         run: |
-          # Locate build_blocklist.py whether it is in the root or scripts/ folder
-          SCRIPT_PATH="build_blocklist.py"
-          if [ ! -f "$SCRIPT_PATH" ] && [ -f "scripts/build_blocklist.py" ]; then
-            SCRIPT_PATH="scripts/build_blocklist.py"
-          fi
+          python3 - << 'EOF'
+          import gzip
+          import pathlib
+          import re
+          import shutil
+          import requests
 
-          # Sanitize any accidental non-breaking spaces (U+00A0) in the Python script
-          python3 -c "p='$SCRIPT_PATH'; open(p,'w').write(open(p).read().replace('\u00a0',' '))"
+          DOMAIN = re.compile(
+              r'^(?:[a-z0-9_](?:[a-z0-9_-]{0,61}[a-z0-9_])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]$'
+          )
 
-          # Run the script and save output to a log file (avoids pipe character corruption)
-          if [ -n "$CUSTOM_SOURCES" ]; then
-            python3 "$SCRIPT_PATH" "$OUT_FILE" $CUSTOM_SOURCES > build_stats.log
+          URLS = [
+              "https://github.com/badmojr/1Hosts/releases/download/latest/1hosts-Lite_domains.wildcards",
+              "https://cdn.jsdelivr.net/gh/hagezi/dns-blocklists@latest/wildcard/ultimate-onlydomains.txt",
+          ]
+
+          def clean(s: str) -> str | None:
+              s = s.strip().lower()
+              if not s or s[0] in '#!':
+                  return None
+              s = re.sub(r'^(?:0\.0\.0\.0|127\.0\.0\.1)[ \t]+', '', s)
+              s = re.sub(r'^\|\|', '', s)
+              s = re.sub(r'^\*\.', '', s)
+              s = re.sub(r'[\^$].*$', '', s)
+              parts = s.split()
+              if not parts:
+                  return None
+              s = parts[0].strip('.')
+              return s if DOMAIN.match(s) else None
+
+          out = set()
+          for url in URLS:
+              print(f"GET {url}", flush=True)
+              try:
+                  r = requests.get(url, timeout=180)
+                  r.raise_for_status()
+                  for line in r.text.splitlines():
+                      d = clean(line)
+                      if d:
+                          out.add(d)
+              except Exception as e:
+                  print(f"FAIL {url}: {e}", flush=True)
+
+          if not out:
+              raise SystemExit("Error: 0 domains collected; aborting to avoid overwriting with empty file.")
+
+          content = "\n".join(sorted(out)) + "\n"
+          pathlib.Path("final.txt").write_text(content, encoding="utf-8")
+
+          with gzip.open("final.txt.gz", "wt", encoding="utf-8", compresslevel=9, mtime=0) as f:
+              f.write(content)
+
+          shutil.copyfile("final.txt.gz", "final.gz")
+          print(f"DONE {len(out)} domains", flush=True)
+          EOF
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add final.txt final.txt.gz final.gz
+          if git diff --cached --quiet; then
+            echo "No changes in domain list."
           else
-            python3 "$SCRIPT_PATH" "$OUT_FILE" > build_stats.log
-          fi
-
-          # Print stats to the console log and append to GitHub Job Summary
-          cat build_stats.log
-          echo "### 🛡️ ESP32-C3 Blocklist Build Summary" >> "$GITHUB_STEP_SUMMARY"
-          echo '```text' >> "$GITHUB_STEP_SUMMARY"
-          cat build_stats.log >> "$GITHUB_STEP_SUMMARY"
-          echo '```' >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Verify binary size budget
-        env:
-          OUT_FILE: ${{ inputs.output_name || 'blocklist.bin' }}
-        run: |
-          if [ ! -s "$OUT_FILE" ]; then
-            echo "::error::Generated $OUT_FILE is missing or empty!"
-            exit 1
-          fi
-          SIZE=$(stat -c%s "$OUT_FILE")
-          echo "Verified binary size: $SIZE bytes"
-          if [ "$SIZE" -gt 1572864 ]; then
-            echo "::warning::blocklist.bin ($SIZE bytes) exceeds 1.5 MB. Ensure your ESP32-C3 partition table fits this blob!"
-          fi
-
-      - name: Upload blocklist.bin as CI Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: esp32-blocklist-bin
-          path: ${{ inputs.output_name || 'blocklist.bin' }}
-          retention-days: 14
-
-      - name: Publish to 'latest' GitHub Release
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OUT_FILE: ${{ inputs.output_name || 'blocklist.bin' }}
-        run: |
-          TAG="latest"
-          if ! gh release view "$TAG" >/dev/null 2>&1; then
-            gh release create "$TAG" "$OUT_FILE" \
-              --title "Latest Compiled Blocklist" \
-              --notes "Automated daily build of the 40-bit FNV-1a hash blob for the ESP32-C3 ad-blocker."
-          else
-            gh release upload "$TAG" "$OUT_FILE" --clobber
-            gh release edit "$TAG" \
-              --notes "Automated build updated on $(date -u '+%Y-%m-%d %H:%M UTC')."
+            git commit -m "chore: update blocklist ($(wc -l < final.txt) domains)"
+            git push
           fi
