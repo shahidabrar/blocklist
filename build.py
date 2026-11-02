@@ -6,6 +6,8 @@ URLS = [
     "https://raw.githubusercontent.com/hagezi/dns-blocklists/refs/heads/main/wildcard/pro.plus-onlydomains.txt",
     "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/adblock-for-dnsmasq.conf",
     "https://raw.githubusercontent.com/bigdargon/hostsVN/refs/heads/master/hosts",
+    "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts",
+    
 ]
 
 def clean(s: str):
