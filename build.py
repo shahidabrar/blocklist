@@ -7,8 +7,7 @@ URLS = [
     "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/master/adblock-for-dnsmasq.conf",
     "https://raw.githubusercontent.com/bigdargon/hostsVN/refs/heads/master/hosts",
     "https://raw.githubusercontent.com/AdguardTeam/cname-trackers/refs/heads/master/data/combined_disguised_ads_justdomains.txt",
-    "https://raw.githubusercontent.com/AdguardTeam/cname-trackers/refs/heads/master/data/combined_disguised_clickthroughs_justdomains.txt",
-    "https://raw.githubusercontent.com/AdguardTeam/cname-trackers/refs/heads/master/data/combined_disguised_microsites_justdomains.txt",
+   "https://raw.githubusercontent.com/AdguardTeam/cname-trackers/refs/heads/master/data/combined_disguised_microsites_justdomains.txt",
     "https://raw.githubusercontent.com/AdguardTeam/cname-trackers/refs/heads/master/data/combined_original_trackers_justdomains.txt",
     
     
