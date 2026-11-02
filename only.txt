@@ -14311,7 +14311,6 @@ a344.m.akastream.net
 a346e39006.f61760298d.com
 a3497230075.cdn.optimizely.com
 a351480257.cdn.optimizely.com
-a351fec2c318c11ea9b9b0a0ae18fb0b-1529426863.eu-central-1.elb.amazonaws.com
 a352.sandiegouniontribune.com
 a3533800155.cdn.optimizely.com
 a3567930175.cdn.optimizely.com
@@ -14509,7 +14508,6 @@ a59714c768.689fe98d0d.com
 a5976764701736960.cdn.optimizely.com
 a5ddb5cd30.com
 a5e2844b1c.e224c6cedf.com
-a5e652663674a11e997c60ac8a4ec150-1684524385.eu-central-1.elb.amazonaws.com
 a5k0w.top
 a5o3pv5rsx.com
 a5wlr2yplf.com
@@ -14677,7 +14675,6 @@ a869.mercurynews.com
 a8723.com
 a8787468851.cdn.optimizely.com
 a8787894373.cdn.optimizely.com
-a88045584548111e997c60ac8a4ec150-1610510072.eu-central-1.elb.amazonaws.com
 a883950043.com
 a885.ac-images.myspacecdn.com
 a88wptk.com
@@ -16968,7 +16965,6 @@ ad-clicks.com
 ad-client-in.norest.shop
 ad-client-in.skuyapi.my.id
 ad-client.mediafe-prd.s.joyn.de
-ad-cloud.jp
 ad-cmp.hismarttv.com
 ad-collect.hzyoka.com
 ad-config-server-alb-1568245422.us-west-2.elb.amazonaws.com
@@ -27903,7 +27899,6 @@ afastol.com
 afbavrlcwefya.space
 afbcashidr.com
 afbhub.net
-afc4d9aa2a91d11e997c60ac8a4ec150-2082092489.eu-central-1.elb.amazonaws.com
 afcav.com
 afcnuchxgo.com
 afcontent.net
@@ -28018,7 +28013,6 @@ affectsyntaxthousand.com
 affen-kaufen.com
 affen-park.de
 affenzahn-schuhe.com
-affex.org
 affflow.com
 affforce.com
 affi.cafemontana.cz
@@ -81873,7 +81867,6 @@ custom-progressbar.com
 custom-proxy.leadpages.net
 custom.changepool.xyz
 custom.ltrmnt.com
-custom.plausible.io
 custom.saemereien.ch
 custom.shop.avispl.com
 custom.spekebua.no
@@ -81901,7 +81894,6 @@ customer-portal.info
 customer-profile-realtime-serving.optimove.net
 customer-sentry.hepsiburada.com
 customer-statistics.umico.az
-customer.etracker.com
 customer.growmart.de
 customer.guru
 customer.h24.news
@@ -82526,7 +82518,6 @@ cz-parts.de
 cz-parts.eu
 cz-parts.fi
 cz.adocean.pl
-cz.affilbox.cz
 cz.gmads.mookie1.com
 cz.gp
 cz.hit.gemius.pl
@@ -87376,7 +87367,6 @@ data.accountsemea.coca-cola.com
 data.activity.commandcentral.com
 data.ad-score.com
 data.adaptiveaudience.com
-data.adobedc.net
 data.adop.cc
 data.ads.heytapmobi.com
 data.ads.oppomobile.com
@@ -98533,7 +98523,6 @@ e.connectad.io
 e.cquotient.com
 e.crowdview.ai
 e.cs2.gold
-e.customeriomail.com
 e.de.inmobi.com
 e.deployads.com
 e.disneyconsumerproductsinteractive.com
@@ -106872,7 +106861,6 @@ exactseek.com
 exactshaver.shop
 exactsoftware.evergage.com
 exacttarget.api.mashery.com
-exacttarget.com
 exacttargetapis.com
 exacttracking.moonou.de
 exad.smi2.ru
@@ -116736,7 +116724,6 @@ friendfinder.com
 friendfinderinc.com
 friendgreetings.net
 friendly-cendol-b364813.netlify.app
-friendly-community.tk
 friendlyanalytics.ch
 friendlyappz.com
 friendlybunny.com
@@ -120746,7 +120733,6 @@ genialcomplain.com
 genialkitchen.com
 geniee.jp
 genieedmp.com
-genieespv.jp
 genieessp.com
 genieessp.jp
 genieesspv.jp
@@ -123989,7 +123975,6 @@ go.openx.com
 go.oracle.com
 go.pancafepro.com
 go.panotads.com
-go.pardot.com
 go.peopleready.com
 go.perkinscoie.com
 go.pjm.com
@@ -126132,7 +126117,6 @@ greyaxgqpraqj.website
 greyflyenmesh.shop
 greygrid.net
 greylabel.org
-greylabeldelivery.com
 greylagbact.com
 greylock.com
 greymont-evobit-digital.pages.dev
@@ -149619,7 +149603,6 @@ k.gp
 k.h.a.d.free.fr
 k.iinfo.cz
 k.j1ewk1l6obggtm125fqm1bo7qlm.cyou
-k.keyade.com
 k.knuffelwuff.de
 k.kompava.sk
 k.kwai.com
@@ -167563,7 +167546,6 @@ mailgun-clicks.monzo.com
 mailgun-dataplane.rudderstack.com
 mailgun.airtable.com
 mailgun.internationalsos.com
-mailgun.org
 mailgunemail.origamirisk.com
 mailhotline.de
 mailhotline.eu
@@ -181810,7 +181792,6 @@ monometih.duckdns.org
 mononchtenue.cyou
 mononoteapp.firebaseio.com
 monoplaycasino-fr.fr
-monopoly-drain.ga
 monopoly36.top
 monopolyclothing.com
 monorail-edge.shopifysvc.com
@@ -186791,7 +186772,6 @@ nc.eetenmaniva.shop
 nc.gdt.qq.com
 nc.nextlgsdp.com
 nc.pubpowerplatform.io
-nc0.co
 nc9w4i8jj9ymc5mt4.cfd
 ncachear.com
 ncads.s3.amazonaws.com
@@ -203587,7 +203567,6 @@ paritygauily.com
 parixaxj.com
 park.azsportsent.net
 park.realbig.media
-park.realbig.online
 park.zisvd.com
 parkasohm.cfd
 parkdesignhome.com
@@ -209329,7 +209308,6 @@ pl.ventunotech.com
 pl.vivami.co
 pl.web.toleadoo.com
 pl0142672.icu
-pl02.prolitteris.2cnt.net
 pl059180.sbs
 pl12423422132.top
 pl28098712490.top
@@ -236419,7 +236397,6 @@ sailorandmoist.com
 sailorapart.com
 sailordoorstep.com
 sailthru.cloud
-sailthru.com
 sailthru.emagazines.com
 sailthru.minted.com
 sailthrulink.si.com
@@ -237658,7 +237635,6 @@ sc-report.tantanapp.com
 sc-static.net
 sc-thor.vip.com
 sc.adelement.com
-sc.adobedc.net
 sc.bausep.de
 sc.eyugz66.xyz
 sc.grattis.ru
@@ -282011,7 +281987,6 @@ tracking.bolt.eu
 tracking.bonn.de
 tracking.borlangetidning.se
 tracking.borssnack.di.se
-tracking.bp01.net
 tracking.brady.nl
 tracking.brady.pl
 tracking.bradyid.com
@@ -286704,7 +286679,6 @@ u532344488.hostingerapp.com
 u542.dailycamera.com
 u55011.com
 u566.chron.com
-u57.muzikguide.com
 u576.koillis-savo.fi
 u578.wlwt.com
 u57jwt.close.futureisready.com
