@@ -6,7 +6,8 @@ URLS = [
     "https://raw.githubusercontent.com/hagezi/dns-blocklists/refs/heads/main/wildcard/pro.plus-onlydomains.txt",
     "https://github.com/badmojr/1Hosts/releases/download/latest/1hosts-Lite_domains.wildcards",
     "https://raw.githubusercontent.com/privacy-protection-tools/anti-AD/refs/heads/master/anti-ad-domains.txt",
-    "https://raw.githubusercontent.com/hl2guide/combined-adblock-lists/refs/heads/main/blocklist_combined_filterlist.txt_001.txt",
+    "https://raw.githubusercontent.com/ppfeufer/adguard-filter-list/refs/heads/master/blocklist",
+    
     
     
     
