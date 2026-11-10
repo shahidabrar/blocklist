@@ -7,6 +7,8 @@ URLS = [
     "https://github.com/badmojr/1Hosts/releases/download/latest/1hosts-Lite_domains.wildcards",
      "https://v.firebog.net/hosts/AdguardDNS.txt",
     "https://raw.githubusercontent.com/bigdargon/hostsVN/refs/heads/master/source/hosts.txt",
+"https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts",
+  
     
     
     
