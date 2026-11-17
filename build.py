@@ -10,6 +10,8 @@ URLS = [
 "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts",
     "https://raw.githubusercontent.com/bongochong/CombinedPrivacyBlockLists/master/NoFormatting/BlacklistedDomains.txt",
   "https://big.oisd.nl/domainswild2",
+    "https://hblock.molinero.dev/hosts_domains.txt",
+    
     
     
     
