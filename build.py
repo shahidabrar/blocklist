@@ -13,7 +13,13 @@ URLS = [
     "https://hblock.molinero.dev/hosts_domains.txt",
     "https://raw.githubusercontent.com/bigdargon/hostsVN/refs/heads/master/option/domain-VN.txt",
     "https://someonewhocares.org/hosts/",
-    
+    "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/RAW/Wild_Tracking",
+    "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/RAW/Ads",
+    "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/RAW/Junk",
+    "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/RAW/Marketing",
+    "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/RAW/Tracking",
+    "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/RAW/Wild_Ads",
+    "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/RAW/Scam",
     
     
     
