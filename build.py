@@ -20,6 +20,7 @@ URLS = [
     "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/RAW/Tracking",
     "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/RAW/Wild_Ads",
     "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/RAW/Scam",
+    "https://phishing.army/download/phishing-army-domains.txt",
     
     
     
