@@ -10,7 +10,7 @@ URLS = [
 "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts",
     "https://raw.githubusercontent.com/bongochong/CombinedPrivacyBlockLists/master/NoFormatting/BlacklistedDomains.txt",
   "https://big.oisd.nl/domainswild2",
-    "https://hblock.molinero.dev/hosts_domains.txt",
+
     "https://raw.githubusercontent.com/bigdargon/hostsVN/refs/heads/master/option/domain-VN.txt",
     "https://someonewhocares.org/hosts/",
     "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/RAW/Wild_Tracking",
