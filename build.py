@@ -8,7 +8,7 @@ URLS = [
      "https://v.firebog.net/hosts/AdguardDNS.txt",
     "https://raw.githubusercontent.com/bigdargon/hostsVN/refs/heads/master/source/hosts.txt",
 
-    "https://raw.githubusercontent.com/bongochong/CombinedPrivacyBlockLists/master/NoFormatting/BlacklistedDomains.txt",
+    
   "https://big.oisd.nl/domainswild2",
 
     "https://raw.githubusercontent.com/bigdargon/hostsVN/refs/heads/master/option/domain-VN.txt",
