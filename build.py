@@ -7,11 +7,7 @@ URLS = [
     "https://github.com/badmojr/1Hosts/releases/download/latest/1hosts-Lite_domains.wildcards",
      "https://v.firebog.net/hosts/AdguardDNS.txt",
     "https://raw.githubusercontent.com/bigdargon/hostsVN/refs/heads/master/source/hosts.txt",
-
-    
-  "https://big.oisd.nl/domainswild2",
-
-    "https://raw.githubusercontent.com/bigdargon/hostsVN/refs/heads/master/option/domain-VN.txt",
+"https://raw.githubusercontent.com/bigdargon/hostsVN/refs/heads/master/option/domain-VN.txt",
     "https://someonewhocares.org/hosts/",
     "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/RAW/Wild_Tracking",
     "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/RAW/Ads",
