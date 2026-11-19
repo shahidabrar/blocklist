@@ -20,14 +20,7 @@ URLS = [
     "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/RAW/Tracking",
     "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/RAW/Wild_Ads",
     "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/RAW/Scam",
-    "https://phishing.army/download/phishing-army-domains.txt",
-    "https://raw.githubusercontent.com/AdguardTeam/cname-trackers/refs/heads/master/data/combined_disguised_ads_justdomains.txt",
-    "https://raw.githubusercontent.com/AdguardTeam/cname-trackers/refs/heads/master/data/combined_disguised_clickthroughs_justdomains.txt",
-    "https://raw.githubusercontent.com/AdguardTeam/cname-trackers/refs/heads/master/data/combined_disguised_mail_trackers_justdomains.txt",
-    "https://raw.githubusercontent.com/AdguardTeam/cname-trackers/refs/heads/master/data/combined_disguised_microsites_justdomains.txt",
- "https://raw.githubusercontent.com/AdguardTeam/cname-trackers/refs/heads/master/data/combined_disguised_trackers_justdomains.txt",
-"https://raw.githubusercontent.com/AdguardTeam/cname-trackers/refs/heads/master/data/combined_original_trackers_justdomains.txt",
-
+    
     
     
     
