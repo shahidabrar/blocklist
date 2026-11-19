@@ -15,11 +15,11 @@ URLS = [
     "https://someonewhocares.org/hosts/",
     "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/RAW/Wild_Tracking",
     "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/RAW/Ads",
-    "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/RAW/Junk",
+    
     "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/RAW/Marketing",
     "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/RAW/Tracking",
     "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/RAW/Wild_Ads",
-    "https://raw.githubusercontent.com/ShadowWhisperer/BlockLists/refs/heads/master/RAW/Scam",
+    
     
     
     
